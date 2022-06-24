@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 import requests
 import json
  
@@ -53,4 +54,4 @@ async def get_forest_fires():
     res = res.replace('items','\"items\"')
     res = json.loads(res)
 
-    return res['initialState']['items'][0]
+    return JSONResponse(content=res['initialState']['items'][0])
