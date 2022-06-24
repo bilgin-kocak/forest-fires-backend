@@ -1,1 +1,1 @@
-web: uvicorn application:app --host=127.0.0.1 --port=8000
+web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker application:app
